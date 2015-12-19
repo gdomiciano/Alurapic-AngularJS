@@ -1,0 +1,51 @@
+$scope.foto = foto; //copia a variavel para o escopo do angular
+
+//criando um modulo:
+angular.module("alurapic",[]) // modulo separa as apps, para que um controler nao dependa de outro,
+
+//criando um controller:
+angular.module("alurapic")
+//acessar o controller do modulo
+  .controller("FotosController", function($scope){
+
+  })
+//aplicar qualquer alteração que nao depeda do angular exclusivamente:
+$scope.apply()
+
+$http.get().then //faz requisição externa assincrona e nao prcisa usar o $scope.apply();
+
+promisse é a ideia de encadear o callback sem passar ele como parametro,... ex de promisse: success(), then()
+
+
+//para definir o nome das dependencias em uma funcao (gestao de dependencias):
+.controller("FotosController", ["$http","$scope",function(h,s){}]);
+
+qualquer coisa que muda o html é uma diretiva podendo ser um elemento (tag), um comentário, um atributo como por exemplo o ng-repeat ou ng-controller  ou <panel></panel>
+
+toda diretiva terá um objeto chamado DDO (Directive Description Object)
+
+//estrutura minima de uma diretiva
+angular.module('minha diretiva').directive('panel', function(){
+  var ddo = {}
+  ddo.scope= {titulo: '@titulo'} //o @ é obrigatorio para copiar o valor da variavel que está sendo referenciada, usar apenas o @ ele procura por um atributo de mesmo nome
+  return ddo;
+})
+
+usa-se o transclude para trocar o conteudo de uma diretiva
+
+
+ng-repeat="foto in fotos | filter: {$:busca}" //usando o $ ele busca em todos os niveis
+// o filter filtra listas onde eo que vem antes do pipe ele recebe onde buscar e dentro do objeto ele filtra o que tem que ser buscado
+
+title.match(new RegExp('\\b'+busca)) // filtro com regex customizado
+
+estudar ionioc
+
+promise é usada para eventos assincronos únicos
+
+
+Backend RESTful vc trabalha
+
+para falar o que uma promise tem que fazer sempre usamos a funcao
+
+a promisse ela executa com o then e o catch, uma funcao que retorna uma promise  primeiro é executadas e depois vai executar o then e o catch
