@@ -10,27 +10,28 @@ angular.module('meusServicos', ['ngResource'])
                     recursoFoto.update({fotoId:foto._id}, foto, function(){
                         resolve({
                             mensagem:'Foto' + foto.titulo + ' atualizada com sucesso!',
-                            inclusao: false;
+                            inclusao: false
                         }),
                         function(erro){
                             console.log(erro)
                             reject({
-                                mensagem:'Não foi possivel atualizar a foto' + foto.titulo;
-                            })
-                        })
-                    }
+                                mensagem:'Não foi possivel atualizar a foto' + foto.titulo
+                            });
+                        }
+                    });
+                    
                 }else{
                     recursoFoto.save({fotoId:foto._id}, foto, function(){
                         resolve({
                             mensagem:'Foto' + foto.titulo + ' incluida com sucesso!',
-                            inclusao: true;
+                            inclusao: true
                         }),function(erro){
                             console.log(erro)
                             reject({
-                                mensagem:'Não foi possivel incluir a foto' + foto.titulo;
+                                mensagem:'Não foi possivel incluir a foto' + foto.titulo
                             })
-                        })
-                    }
+                        }
+                    });
                 }
             });
         };
