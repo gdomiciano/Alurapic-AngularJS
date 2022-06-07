@@ -6,4 +6,4 @@
 
 It was my very first interaction with this framework. This repostory is still available for reference/nostalgia purposes.
 
-http://www.democrats.org/![image](https://user-images.githubusercontent.com/4642785/172463858-7ff02e29-2dfc-4075-94ca-4514f64d9f49.png)
+![image](https://user-images.githubusercontent.com/4642785/172463858-7ff02e29-2dfc-4075-94ca-4514f64d9f49.png)
