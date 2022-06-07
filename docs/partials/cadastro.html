@@ -1,0 +1,48 @@
+<div class="page-header">
+    <h1>Cadatro de Fotos</h1>
+</div>
+<p ng-show="mensagem.length" class="alert alert-info">
+    {{mensagem}}
+</p>
+<form ng-submit="f.$valid && submeter()" name="f" novalidate>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="title">Titulo:</label>
+            <input type="text" name="titulo" class="form-control" required ng-model="foto.titulo" maxlength="30">
+            <div ng-show="f.$submitted" class="form-control alert-danger">
+                <span ng-show="f.titulo.$error.required" >Titulo Obrigatório</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input name="url" class="form-control" type="url" required ng-model="foto.url" >
+            <div ng-show="f.$submitted" class="form-control alert-danger">
+                <span ng-show="f.$submitted && f.url.$error.required">URL Obrigatório</span>
+                <span ng-show="f.$submitted && f.url.$error.url">URL Inválida</span>
+            </div>
+        </div>
+
+        <select class="group-selector form-control" name="grupo" required="" ng-model="foto.grupo" ng-controller="gruposController" ng-options="grupo._id as grupo.nome for grupo in grupos">
+            <option>Escolha um grupo</option>
+            <span ng-show="f.$submitted && f.grupo.$error.required" class="form-control alert-danger">Grupo Obrigatório</span>
+        </select>
+
+        <div class="form-group">
+            <label for="desc">Descrição:</label>
+            <textarea  name="desc" class="form-control" ng-model="foto.descricao" >
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="/" class="btn btn-danger">Voltar</a>
+
+        <hr>
+
+        <div class="col-md-6">
+            <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+        </div>
+
+    </div>
+
+</form>

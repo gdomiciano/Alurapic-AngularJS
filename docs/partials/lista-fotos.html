@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <form class="" name="formulario" action="index.html" method="post">
+        <div class="form-group">
+            <div class="input-group">
+                <a href="/cadastrar" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>  Nova Foto</a>
+                <input type="text" class="form-control" placeholder="filtrar pelo titulo da foto" ng-model="busca" ng-model-options="{debounce:500}">
+                <select class="group-selector form-control" name="grupo" required="" ng-model="foto.grupo" ng-controller="gruposController" ng-options="grupo._id as grupo.nome for grupo in grupos">
+                    <option>Escolha um grupo</option>
+                    <span ng-show="formulario.$submitted && formulario.grupo.$error.required" class="form-control alert-danger">Grupo Obrigatório</span>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pictures">
+<p ng-show="mensagem.length" class="home-alert alert alert-info">
+    {{mensagem}}
+</p>
+<!--Controler é o cara que vai copiar a informação do nosso modelo para o html,
+  não é nada mais do que um view model.
+  Por padrao de nomenclaruta coloque <nome>controller-->
+  <panel class="animate" titulo="{{foto.titulo}}" ng-repeat="foto in fotos | filter: {titulo:busca}">
+      <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+      <div class="btn-group center-block">
+
+          <a href="/editar/{{foto._id}}" class="edit btn btn-primary">Editar</a>
+          <button class="remove btn btn-danger" ng-click="remover(foto)">Remover</button>
+      </div>
+  </panel>
+
+
+</div>
